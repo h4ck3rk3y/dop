@@ -1,0 +1,17 @@
+activate_this = '/home/atanu/.virtualenvs/medicalApp/bin/activate_this.py'
+execfile(activate_this,dict(__file__=activate_this))
+
+import os
+import sys
+
+path = '/home/atanu/mysite'
+
+if path not in sys.path:
+    sys.path.append(path)
+
+os.chdir(path)
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
+
+from django.core.wsgi import get_wsgi_application
+application = get_wsgi_application()

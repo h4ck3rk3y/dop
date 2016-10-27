@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+
+<category><pattern>PAIN</pattern>
+<template>Which part of the body?</template>
+</category>
+
+<category><pattern>BLEED</pattern>
+<template>Where is the bleeding occuring?</template>
+</category>
+
+
+</aiml>

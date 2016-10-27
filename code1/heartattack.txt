@@ -1,0 +1,34 @@
+Enter your current conditions and sufferings if any 
+i have chestpain and sweating.
+Symptoms Observed are
+
+['chestpain', 'sweat']
+[0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
+[ 0.][ 0.][ 4.24589446][ 4.69787958][ 5.54517744][ 0.]
+[ 0.][ 0.][ 4.24589446][ 10.49437146][ 5.54517744][ 0.]
+Have you been experiencing pain below the breastbone (yes/no)
+>>no
+no
+[ 1.49435915][ 1.40734777][ 5.74025361][ 10.49437146][ 8.33881958][ 2.50596006]
+Have you been experiencing pain in the left arm (yes/no)
+>>yes
+yes
+[ 1.49435915][ 1.40734777][ 5.74025361][ 16.29086333][ 8.33881958][ 2.50596006]
+Have you been experiencing a choking feeling (may feel like heartburn) (yes/no)
+>>yes
+yes
+[ 1.49435915][ 1.40734777][ 5.74025361][ 22.0873552][ 8.33881958][ 2.50596006]
+Have you been experiencing a Shortness of Breath (yes/no)
+>>yes
+yes
+[ 1.49435915][ 1.40734777][ 5.74025361][ 27.88384708][ 8.33881958][ 2.50596006]
+Have you been experiencing discomfort (yes/no)
+>>yes
+yes
+[ 1.49435915][ 5.56623085][ 9.98614807][ 32.58172666][ 8.33881958][ 2.50596006]
+
+The disease with maximum probability is 
+
+heartattack
+
+ It is a heart related problem. 

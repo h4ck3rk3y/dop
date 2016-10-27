@@ -1,0 +1,49 @@
+Enter your current conditions and sufferings if any 
+i have headache and itching. i also have fever.
+Symptoms Observed are
+
+['headache', 'itch', 'fever']
+[0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+[ 4.24589446][ 4.15888308][ 4.24589446][ 0.][ 0.][ 0.]
+[ 9.59040121][ 4.15888308][ 4.24589446][ 0.][ 0.][ 0.]
+[ 13.83629567][ 8.31776617][ 8.49178892][ 0.][ 0.][ 0.]
+Have you been experiencing pain in eye (yes/no)
+>>yes    
+yes
+[ 19.18080242][ 8.31776617][ 8.49178892][ 0.][ 0.][ 0.]
+Have you been experiencing pain in nerve (yes/no)
+>>yes
+yes
+[ 24.52530917][ 8.31776617][ 8.49178892][ 0.][ 0.][ 0.]
+Have you been experiencing pain in joint (yes/no)
+>>no
+no
+[ 24.52530917][ 9.72511394][ 9.98614807][ 1.94634427][ 2.79364213][ 2.50596006]
+Have you been experiencing bleeding gums (yes/no)
+>>no
+no
+[ 24.52530917][ 9.72511394][ 11.50201342][ 3.91419475][ 5.60879047][ 5.03342632]
+Are there any rashes occuring (yes/no)
+>>yes
+yes
+[ 29.17666874][ 14.28946213][ 11.50201342][ 3.91419475][ 5.60879047][ 5.03342632]
+Have you been experiencing nausea (yes/no)
+>>yes
+yes
+[ 33.4225632][ 18.44834521][ 15.74790788][ 3.91419475][ 5.60879047][ 5.03342632]
+Have you been experiencing pain in muscle (yes/no)
+>>yes
+yes
+[ 37.66845766][ 22.6072283][ 19.99380234][ 3.91419475][ 5.60879047][ 5.03342632]
+Have you been experiencing vomit (yes/no)
+>>no
+no
+[ 37.66845766][ 22.6072283][ 19.99380234][ 5.92649699][ 8.46839057][ 5.03342632]
+
+The disease with maximum probability is 
+
+dengue
+
+ It is a fever related problem. 
+
+

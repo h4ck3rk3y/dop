@@ -1,0 +1,22 @@
+Enter your current conditions and sufferings if any 
+i have vomit and strained bowel movement .
+Symptoms Observed are
+
+['vomit', 'bowel']
+[0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0]
+[ 3.95821239][ 3.87120101][ 3.95821239][ 0.][ 0.][ 4.9698133]
+[ 3.95821239][ 3.87120101][ 3.95821239][ 0.][ 0.][ 11.32592096]
+Have you been experiencing a small or hard stool. (yes/no)
+>>yes
+yes
+[ 3.95821239][ 3.87120101][ 3.95821239][ 0.][ 0.][ 17.68202862]
+Have you been experiencing abdominal pain or stomach ache (yes/no)
+>>yes
+yes
+[ 3.95821239][ 8.03008409][ 8.20410685][ 0.][ 0.][ 22.93952399]
+
+The disease with maximum probability is 
+
+constipation
+
+ It is a digestion related problem.
