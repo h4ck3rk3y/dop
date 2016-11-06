@@ -10,6 +10,7 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
+import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btnSpeak;
     private final int REQ_CODE_SPEECH_INPUT = 100;
     private  int olm=1;
+    TextToSpeech t1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         arr=new int[19];
@@ -81,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(getApplicationContext(),"hai "+arr[15],Toast.LENGTH_LONG).show();
-                String sturl = "http://atanu.pythonanywhere.com/webapp/first?";
+                String sturl = "http://medapp.pythonanywhere.com/webapp/first?";
                 String stringUrl = urlText.getText().toString();
                 stringUrl = stringUrl.replaceAll(" ", "_");
                 sturl = sturl.concat(stringUrl);
@@ -115,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     qIndex=0;
                 }
-                String sturl="http://atanu.pythonanywhere.com/webapp/second?";
+                String sturl="http://medapp.pythonanywhere.com/webapp/second?";
                 sturl=sturl.concat(Arrays.toString(arr));
                 sturl=sturl.concat("#");
                 sturl=sturl.replaceAll("\\[","");
@@ -128,6 +130,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+    public void onPause(){
+        if(t1 !=null){
+            t1.stop();
+            t1.shutdown();
+        }
+        super.onPause();
+    }
+
+
     private void promptSpeechInput() {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
@@ -219,45 +230,70 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void askQuestion() {
+
+
+
+
+
         //Toast.makeText(getApplicationContext(),"uuuuuuu ",Toast.LENGTH_LONG).show();
         int temp = qIndex;
-        if ( temp == 1)
-            textView.setText("Have you been experiencing headache (yes/no)");
-        else if ( temp == 2)
-            textView.setText("Have you been experiencing vomit (yes/no)");
-        else if ( temp == 3)
-            textView.setText("Have you been experiencing nausea (yes/no)");
-        else if ( temp == 4)
-            textView.setText("Have you been experiencing pain in eye (yes/no)");
-        else if ( temp == 5)
-            textView.setText("Have you been experiencing pain in muscle (yes/no)");
-        else if ( temp == 6)
-            textView.setText("Have you been experiencing pain in chest (yes/no)");
-        else if ( temp == 7)
-            textView.setText("Have you been experiencing chills or high spike in fever (yes/no)");
-        else if ( temp == 8)
-            textView.setText("Have you been experiencing pain in nerve (yes/no)");
-        else if ( temp == 9)
-            textView.setText("Have you been experiencing pain in joint (yes/no)");
-        else if ( temp == 10)
-            textView.setText("Have you been experiencing bleeding gums (yes/no)");
-        else if ( temp == 11)
-            textView.setText("Have you been experiencing itching  (yes/no)");
-        else if ( temp == 12)
-            textView.setText("Are there any rashes occuring (yes/no)");
-        else if ( temp == 13)
-            textView.setText("Have you been experiencing fever (yes/no)");
-        else if ( temp == 14)
-            textView.setText("Have you been experiencing abdominal pain or stomach ache (yes/no)");
-        else if ( temp == 15)
-            textView.setText("Have you been experiencing diarrhea (yes/no)");
-        else if ( temp == 16)
-            textView.setText("Have you been experiencing dizziness (yes/no)");
-        else if ( temp == 17)
-            textView.setText("Have you been experiencing discomfort (yes/no)");
-        else if ( temp == 18)
-            textView.setText("Have you been experiencing bleeding nose (yes/no)");
 
+        String help = "";
+
+        if ( temp == 1)
+            help = ("Have you been experiencing headache (yes/no)");
+        else if ( temp == 2)
+            help = ("Have you been experiencing vomit (yes/no)");
+        else if ( temp == 3)
+            help = ("Have you been experiencing nausea (yes/no)");
+        else if ( temp == 4)
+            help = ("Have you been experiencing pain in eye (yes/no)");
+        else if ( temp == 5)
+            help = ("Have you been experiencing pain in muscle (yes/no)");
+        else if ( temp == 6)
+            help = ("Have you been experiencing pain in chest (yes/no)");
+        else if ( temp == 7)
+            help = ("Have you been experiencing chills or high spike in fever (yes/no)");
+        else if ( temp == 8)
+            help = ("Have you been experiencing pain in nerve (yes/no)");
+        else if ( temp == 9)
+            help = ("Have you been experiencing pain in joint (yes/no)");
+        else if ( temp == 10)
+            help = ("Have you been experiencing bleeding gums (yes/no)");
+        else if ( temp == 11)
+            help = ("Have you been experiencing itching  (yes/no)");
+        else if ( temp == 12)
+            help = ("Are there any rashes occuring (yes/no)");
+        else if ( temp == 13)
+            help = ("Have you been experiencing fever (yes/no)");
+        else if ( temp == 14)
+            help = ("Have you been experiencing abdominal pain or stomach ache (yes/no)");
+        else if ( temp == 15)
+            help = ("Have you been experiencing diarrhea (yes/no)");
+        else if ( temp == 16)
+            help = ("Have you been experiencing dizziness (yes/no)");
+        else if ( temp == 17)
+            help = ("Have you been experiencing discomfort (yes/no)");
+        else if ( temp == 18)
+            help = ("Have you been experiencing bleeding nose (yes/no)");
+
+        textView.setText(help);
+
+        t1=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+
+                Log.d("Nigga", "comma");
+                if(status != TextToSpeech.ERROR) {
+                    t1.setLanguage(Locale.UK);
+                }
+                t1.speak(String.valueOf(textView.getText()), TextToSpeech.QUEUE_FLUSH, null);
+
+
+            }
+        });
+
+        Log.d("Nigga", "hola");
 
         urlText.setText("");
 
