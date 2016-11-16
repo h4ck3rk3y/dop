@@ -1,0 +1,854 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+<category><pattern>ARM</pattern>
+<template>ARM</template>
+</category>
+
+<category><pattern>EYE</pattern>
+<template>EYE</template>
+</category>
+
+<category><pattern>GUM</pattern>
+<template>GUM</template>
+</category>
+
+<category><pattern>EYEBROW</pattern>
+<template>EYEBROW</template>
+</category>
+
+<category><pattern>BELLY</pattern>
+<template>BELLY</template>
+</category>
+
+<category><pattern>LEG</pattern>
+<template>LEG</template>
+</category>
+
+<category><pattern>BREAST</pattern>
+<template>BREAST</template>
+</category>
+
+<category><pattern>THUMB</pattern>
+<template>THUMB</template>
+</category>
+
+<category><pattern>ELBOW</pattern>
+<template>ELBOW</template>
+</category>
+
+<category><pattern>FIST</pattern>
+<template>FIST</template>
+</category>
+
+<category><pattern>FINGER</pattern>
+<template>FINGER</template>
+</category>
+
+<category><pattern>FOOT</pattern>
+<template>FOOT</template>
+</category>
+
+<category><pattern>ANKLE</pattern>
+<template>ANKLE</template>
+</category>
+
+<category><pattern>BUTTOCK</pattern>
+<template>BUTTOCK</template>
+</category>
+
+<category><pattern>HAIR</pattern>
+<template>HAIR</template>
+</category>
+
+<category><pattern>NECK</pattern>
+<template>NECK</template>
+</category>
+
+<category><pattern>HAND</pattern>
+<template>HAND</template>
+</category>
+
+<category><pattern>WRIST</pattern>
+<template>WRIST</template>
+</category>
+
+<category><pattern>HIP</pattern>
+<template>HIP</template>
+</category>
+
+<category><pattern>CHIN</pattern>
+<template>CHIN</template>
+</category>
+
+<category><pattern>KNEE</pattern>
+<template>KNEE</template>
+</category>
+
+<category><pattern>HEAD</pattern>
+<template>HEAD</template>
+</category>
+
+<category><pattern>LIP</pattern>
+<template>LIP</template>
+</category>
+
+<category><pattern>MOUTH</pattern>
+<template>MOUTH</template>
+</category>
+
+<category><pattern>NOSE</pattern>
+<template>NOSE</template>
+</category>
+
+<category><pattern>NOSTRIL</pattern>
+<template>NOSTRIL</template>
+</category>
+
+<category><pattern>UPPER</pattern>
+<template>UPPER</template>
+</category>
+
+<category><pattern>ARM</pattern>
+<template>ARM</template>
+</category>
+
+<category><pattern>THIGH</pattern>
+<template>THIGH</template>
+</category>
+
+<category><pattern>EAR</pattern>
+<template>EAR</template>
+</category>
+
+<category><pattern>BOTTOM</pattern>
+<template>BOTTOM</template>
+</category>
+
+<category><pattern>BACK</pattern>
+<template>BACK</template>
+</category>
+
+<category><pattern>UNDERARM</pattern>
+<template>UNDERARM</template>
+</category>
+
+<category><pattern>FOREARM</pattern>
+<template>FOREARM</template>
+</category>
+
+<category><pattern>LOWER</pattern>
+<template>LOWER</template>
+</category>
+
+<category><pattern>LEG</pattern>
+<template>LEG</template>
+</category>
+
+<category><pattern>SHOULDER</pattern>
+<template>SHOULDER</template>
+</category>
+
+<category><pattern>FOREHEAD</pattern>
+<template>FOREHEAD</template>
+</category>
+
+<category><pattern>WAIST</pattern>
+<template>WAIST</template>
+</category>
+
+<category><pattern>CALF</pattern>
+<template>CALF</template>
+</category>
+
+<category><pattern>CHEEK</pattern>
+<template>CHEEK</template>
+</category>
+
+<category><pattern>EYELASH</pattern>
+<template>EYELASH</template>
+</category>
+
+<category><pattern>LASH</pattern>
+<template>LASH</template>
+</category>
+
+<category><pattern>TOOTH</pattern>
+<template>TOOTH</template>
+</category>
+
+<category><pattern>TEETH</pattern>
+<template>TEETH</template>
+</category>
+
+<category><pattern>TOE</pattern>
+<template>TOE</template>
+</category>
+
+<category><pattern>TONGUE</pattern>
+<template>TONGUE</template>
+</category>
+
+
+<category><pattern>MUSCLE</pattern>
+<template>TONGUE</template>
+</category>
+
+<category><pattern>* MUSCLE *</pattern>
+<template>TONGUE</template>
+</category>
+
+<category><pattern>MUSCLE *</pattern>
+<template>TONGUE</template>
+</category>
+
+<category><pattern>* MUSCLE</pattern>
+<template>TONGUE</template>
+</category>
+
+
+<category><pattern>CHEST</pattern>
+<template>TONGUE</template>
+</category>
+
+<category><pattern>* CHEST *</pattern>
+<template>TONGUE</template>
+</category>
+
+<category><pattern>CHEST *</pattern>
+<template>TONGUE</template>
+</category>
+
+<category><pattern>* CHEST</pattern>
+<template>TONGUE</template>
+</category>
+
+
+<category><pattern>NERVE</pattern>
+<template>TONGUE</template>
+</category>
+
+<category><pattern>* NERVE *</pattern>
+<template>TONGUE</template>
+</category>
+
+<category><pattern>NERVE *</pattern>
+<template>TONGUE</template>
+</category>
+
+<category><pattern>* NERVE</pattern>
+<template>TONGUE</template>
+</category>
+
+<category><pattern>JOINT</pattern>
+<template>TONGUE</template>
+</category>
+
+<category><pattern>* JOINT *</pattern>
+<template>TONGUE</template>
+</category>
+
+<category><pattern>JOINT *</pattern>
+<template>TONGUE</template>
+</category>
+
+<category><pattern>* JOINT</pattern>
+<template>TONGUE</template>
+</category>
+
+<category><pattern>STOMACH</pattern>
+<template>TONGUE</template>
+</category>
+
+<category><pattern>* STOMACH *</pattern>
+<template>TONGUE</template>
+</category>
+
+<category><pattern>STOMACH *</pattern>
+<template>TONGUE</template>
+</category>
+
+<category><pattern>* STOMACH</pattern>
+<template>TONGUE</template>
+</category>
+
+<category><pattern>ABDOMIN</pattern>
+<template>TONGUE</template>
+</category>
+
+<category><pattern>* ABDOMIN *</pattern>
+<template>TONGUE</template>
+</category>
+
+<category><pattern>ABDOMIN *</pattern>
+<template>TONGUE</template>
+</category>
+
+<category><pattern>* ABDOMIN</pattern>
+<template>TONGUE</template>
+</category>
+
+
+
+
+<category><pattern>* ARM *</pattern>
+<template>ARM</template>
+</category>
+
+<category><pattern>* EYE *</pattern>
+<template>EYE</template>
+</category>
+
+<category><pattern>* EYEBROW *</pattern>
+<template>EYEBROW</template>
+</category>
+
+<category><pattern>* BELLY *</pattern>
+<template>BELLY</template>
+</category>
+
+<category><pattern>* LEG *</pattern>
+<template>LEG</template>
+</category>
+
+<category><pattern>* BREAST *</pattern>
+<template>BREAST</template>
+</category>
+
+<category><pattern>* THUMB *</pattern>
+<template>THUMB</template>
+</category>
+
+<category><pattern>* ELBOW *</pattern>
+<template>ELBOW</template>
+</category>
+
+<category><pattern>* FIST *</pattern>
+<template>FIST</template>
+</category>
+
+<category><pattern>* FINGER *</pattern>
+<template>FINGER</template>
+</category>
+
+<category><pattern>* FOOT *</pattern>
+<template>FOOT</template>
+</category>
+
+<category><pattern>* ANKLE *</pattern>
+<template>ANKLE</template>
+</category>
+
+<category><pattern>* BUTTOCK *</pattern>
+<template>BUTTOCK</template>
+</category>
+
+<category><pattern>* HAIR *</pattern>
+<template>HAIR</template>
+</category>
+
+<category><pattern>* NECK *</pattern>
+<template>NECK</template>
+</category>
+
+<category><pattern>* HAND *</pattern>
+<template>HAND</template>
+</category>
+
+<category><pattern>* WRIST *</pattern>
+<template>WRIST</template>
+</category>
+
+<category><pattern>* HIP *</pattern>
+<template>HIP</template>
+</category>
+
+<category><pattern>* CHIN *</pattern>
+<template>CHIN</template>
+</category>
+
+<category><pattern>* KNEE *</pattern>
+<template>KNEE</template>
+</category>
+
+<category><pattern>* HEAD *</pattern>
+<template>HEAD</template>
+</category>
+
+<category><pattern>* LIP *</pattern>
+<template>LIP</template>
+</category>
+
+<category><pattern>* MOUTH *</pattern>
+<template>MOUTH</template>
+</category>
+
+<category><pattern>* NOSE *</pattern>
+<template>NOSE</template>
+</category>
+
+<category><pattern>* NOSTRIL *</pattern>
+<template>NOSTRIL</template>
+</category>
+
+<category><pattern>* UPPER *</pattern>
+<template>UPPER</template>
+</category>
+
+<category><pattern>* ARM *</pattern>
+<template>ARM</template>
+</category>
+
+<category><pattern>* THIGH *</pattern>
+<template>THIGH</template>
+</category>
+
+<category><pattern>* EAR *</pattern>
+<template>EAR</template>
+</category>
+
+<category><pattern>* BOTTOM *</pattern>
+<template>BOTTOM</template>
+</category>
+
+<category><pattern>* GUMS *</pattern>
+<template>GUM</template>
+</category>
+
+<category><pattern>* BACK *</pattern>
+<template>BACK</template>
+</category>
+
+<category><pattern>* UNDERARM *</pattern>
+<template>UNDERARM</template>
+</category>
+
+<category><pattern>* FOREARM *</pattern>
+<template>FOREARM</template>
+</category>
+
+<category><pattern>* LOWER *</pattern>
+<template>LOWER</template>
+</category>
+
+<category><pattern>* LEG *</pattern>
+<template>LEG</template>
+</category>
+
+<category><pattern>* SHOULDER *</pattern>
+<template>SHOULDER</template>
+</category>
+
+<category><pattern>* FOREHEAD *</pattern>
+<template>FOREHEAD</template>
+</category>
+
+<category><pattern>* WAIST *</pattern>
+<template>WAIST</template>
+</category>
+
+<category><pattern>* CALF *</pattern>
+<template>CALF</template>
+</category>
+
+<category><pattern>* CHEEK *</pattern>
+<template>CHEEK</template>
+</category>
+
+<category><pattern>* EYELASH *</pattern>
+<template>EYELASH</template>
+</category>
+
+<category><pattern>* LASH *</pattern>
+<template>LASH</template>
+</category>
+
+<category><pattern>* TOOTH *</pattern>
+<template>TOOTH</template>
+</category>
+
+<category><pattern>* EYES *</pattern>
+<template>EYE</template>
+</category>
+
+
+<category><pattern>* TEETH *</pattern>
+<template>TEETH</template>
+</category>
+
+<category><pattern>* TOE *</pattern>
+<template>TOE</template>
+</category>
+
+<category><pattern>* TONGUE *</pattern>
+<template>TONGUE</template>
+</category>
+
+<category><pattern>ARM *</pattern>
+<template>ARM</template>
+</category>
+
+<category><pattern>EYE *</pattern>
+<template>EYE</template>
+</category>
+
+<category><pattern>EYEBROW *</pattern>
+<template>EYEBROW</template>
+</category>
+
+<category><pattern>BELLY *</pattern>
+<template>BELLY</template>
+</category>
+
+<category><pattern>LEG *</pattern>
+<template>LEG</template>
+</category>
+
+<category><pattern>BREAST *</pattern>
+<template>BREAST</template>
+</category>
+
+<category><pattern>THUMB *</pattern>
+<template>THUMB</template>
+</category>
+
+<category><pattern>ELBOW *</pattern>
+<template>ELBOW</template>
+</category>
+
+<category><pattern>FIST *</pattern>
+<template>FIST</template>
+</category>
+
+<category><pattern>FINGER *</pattern>
+<template>FINGER</template>
+</category>
+
+<category><pattern>FOOT *</pattern>
+<template>FOOT</template>
+</category>
+
+<category><pattern>ANKLE *</pattern>
+<template>ANKLE</template>
+</category>
+
+<category><pattern>BUTTOCK *</pattern>
+<template>BUTTOCK</template>
+</category>
+
+<category><pattern>HAIR *</pattern>
+<template>HAIR</template>
+</category>
+
+<category><pattern>NECK *</pattern>
+<template>NECK</template>
+</category>
+
+<category><pattern>HAND *</pattern>
+<template>HAND</template>
+</category>
+
+<category><pattern>WRIST *</pattern>
+<template>WRIST</template>
+</category>
+
+<category><pattern>HIP *</pattern>
+<template>HIP</template>
+</category>
+
+<category><pattern>CHIN *</pattern>
+<template>CHIN</template>
+</category>
+
+<category><pattern>KNEE *</pattern>
+<template>KNEE</template>
+</category>
+
+<category><pattern>HEAD *</pattern>
+<template>HEAD</template>
+</category>
+
+<category><pattern>LIP *</pattern>
+<template>LIP</template>
+</category>
+
+<category><pattern>MOUTH *</pattern>
+<template>MOUTH</template>
+</category>
+
+<category><pattern>NOSE *</pattern>
+<template>NOSE</template>
+</category>
+
+<category><pattern>NOSTRIL *</pattern>
+<template>NOSTRIL</template>
+</category>
+
+<category><pattern>UPPER *</pattern>
+<template>UPPER</template>
+</category>
+
+<category><pattern>ARM *</pattern>
+<template>ARM</template>
+</category>
+
+<category><pattern>THIGH *</pattern>
+<template>THIGH</template>
+</category>
+
+<category><pattern>EAR *</pattern>
+<template>EAR</template>
+</category>
+
+<category><pattern>BOTTOM *</pattern>
+<template>BOTTOM</template>
+</category>
+
+<category><pattern>BACK *</pattern>
+<template>BACK</template>
+</category>
+
+<category><pattern>UNDERARM *</pattern>
+<template>UNDERARM</template>
+</category>
+
+<category><pattern>FOREARM *</pattern>
+<template>FOREARM</template>
+</category>
+
+<category><pattern>LOWER *</pattern>
+<template>LOWER</template>
+</category>
+
+<category><pattern>LEG *</pattern>
+<template>LEG</template>
+</category>
+
+<category><pattern>SHOULDER *</pattern>
+<template>SHOULDER</template>
+</category>
+
+<category><pattern>FOREHEAD *</pattern>
+<template>FOREHEAD</template>
+</category>
+
+<category><pattern>WAIST *</pattern>
+<template>WAIST</template>
+</category>
+
+<category><pattern>CALF *</pattern>
+<template>CALF</template>
+</category>
+
+<category><pattern>CHEEK *</pattern>
+<template>CHEEK</template>
+</category>
+
+<category><pattern>EYELASH *</pattern>
+<template>EYELASH</template>
+</category>
+
+<category><pattern>LASH *</pattern>
+<template>LASH</template>
+</category>
+
+<category><pattern>TOOTH *</pattern>
+<template>TOOTH</template>
+</category>
+
+<category><pattern>TEETH *</pattern>
+<template>TEETH</template>
+</category>
+
+<category><pattern>TOE *</pattern>
+<template>TOE</template>
+</category>
+
+<category><pattern>TONGUE *</pattern>
+<template>TONGUE</template>
+</category>
+
+<category><pattern>* ARM</pattern>
+<template>ARM</template>
+</category>
+
+<category><pattern>* EYE</pattern>
+<template>EYE</template>
+</category>
+
+<category><pattern>* EYEBROW</pattern>
+<template>EYEBROW</template>
+</category>
+
+<category><pattern>* BELLY</pattern>
+<template>BELLY</template>
+</category>
+
+<category><pattern>* LEG</pattern>
+<template>LEG</template>
+</category>
+
+<category><pattern>* BREAST</pattern>
+<template>BREAST</template>
+</category>
+
+<category><pattern>* THUMB</pattern>
+<template>THUMB</template>
+</category>
+
+<category><pattern>* ELBOW</pattern>
+<template>ELBOW</template>
+</category>
+
+<category><pattern>* FIST</pattern>
+<template>FIST</template>
+</category>
+
+<category><pattern>* FINGER</pattern>
+<template>FINGER</template>
+</category>
+
+<category><pattern>* FOOT</pattern>
+<template>FOOT</template>
+</category>
+
+<category><pattern>* ANKLE</pattern>
+<template>ANKLE</template>
+</category>
+
+<category><pattern>* BUTTOCK</pattern>
+<template>BUTTOCK</template>
+</category>
+
+<category><pattern>* HAIR</pattern>
+<template>HAIR</template>
+</category>
+
+<category><pattern>* NECK</pattern>
+<template>NECK</template>
+</category>
+
+<category><pattern>* HAND</pattern>
+<template>HAND</template>
+</category>
+
+<category><pattern>* WRIST</pattern>
+<template>WRIST</template>
+</category>
+
+<category><pattern>* HIP</pattern>
+<template>HIP</template>
+</category>
+
+<category><pattern>* CHIN</pattern>
+<template>CHIN</template>
+</category>
+
+<category><pattern>* KNEE</pattern>
+<template>KNEE</template>
+</category>
+
+<category><pattern>* HEAD</pattern>
+<template>HEAD</template>
+</category>
+
+<category><pattern>* LIP</pattern>
+<template>LIP</template>
+</category>
+
+<category><pattern>* MOUTH</pattern>
+<template>MOUTH</template>
+</category>
+
+<category><pattern>* NOSE</pattern>
+<template>NOSE</template>
+</category>
+
+<category><pattern>* NOSTRIL</pattern>
+<template>NOSTRIL</template>
+</category>
+
+<category><pattern>* UPPER</pattern>
+<template>UPPER</template>
+</category>
+
+<category><pattern>* ARM</pattern>
+<template>ARM</template>
+</category>
+
+<category><pattern>* THIGH</pattern>
+<template>THIGH</template>
+</category>
+
+<category><pattern>* EAR</pattern>
+<template>EAR</template>
+</category>
+
+<category><pattern>* BOTTOM</pattern>
+<template>BOTTOM</template>
+</category>
+
+<category><pattern>* BACK</pattern>
+<template>BACK</template>
+</category>
+
+<category><pattern>* UNDERARM</pattern>
+<template>UNDERARM</template>
+</category>
+
+<category><pattern>* FOREARM</pattern>
+<template>FOREARM</template>
+</category>
+
+<category><pattern>* LOWER</pattern>
+<template>LOWER</template>
+</category>
+
+<category><pattern>* LEG</pattern>
+<template>LEG</template>
+</category>
+
+<category><pattern>* SHOULDER</pattern>
+<template>SHOULDER</template>
+</category>
+
+<category><pattern>* FOREHEAD</pattern>
+<template>FOREHEAD</template>
+</category>
+
+<category><pattern>* WAIST</pattern>
+<template>WAIST</template>
+</category>
+
+<category><pattern>* CALF</pattern>
+<template>CALF</template>
+</category>
+
+<category><pattern>* CHEEK</pattern>
+<template>CHEEK</template>
+</category>
+
+<category><pattern>* EYELASH</pattern>
+<template>EYELASH</template>
+</category>
+
+<category><pattern>* LASH</pattern>
+<template>LASH</template>
+</category>
+
+<category><pattern>* TOOTH</pattern>
+<template>TOOTH</template>
+</category>
+
+<category><pattern>* TEETH</pattern>
+<template>TEETH</template>
+</category>
+
+<category><pattern>* TOE</pattern>
+<template>TOE</template>
+</category>
+
+<category><pattern>* TONGUE</pattern>
+<template>TONGUE</template>
+</category>
+
+</aiml>
