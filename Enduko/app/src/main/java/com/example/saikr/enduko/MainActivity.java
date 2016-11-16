@@ -283,7 +283,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onInit(int status) {
 
-                Log.d("Nigga", "comma");
                 if(status != TextToSpeech.ERROR) {
                     t1.setLanguage(Locale.UK);
                 }
@@ -293,7 +292,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Log.d("Nigga", "hola");
 
         urlText.setText("");
 
