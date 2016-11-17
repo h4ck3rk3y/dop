@@ -129,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
                 sturl=sturl.replaceAll("\\]","");
                 sturl=sturl.replaceAll(" ","");
                 //Toast.makeText(getApplicationContext(),"output "+sturl,Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Submitting...", Toast.LENGTH_LONG).show();
                 myClickHandler(v, sturl);
 
             }
@@ -186,7 +187,6 @@ public class MainActivity extends AppCompatActivity {
                             .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     urlText.setText(result.get(0));
                     chitti.performClick();
-                    Toast.makeText(getApplicationContext(),"Submitting...", Toast.LENGTH_LONG).show();
                 }
                 break;
             }
