@@ -186,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
                             .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     urlText.setText(result.get(0));
                     chitti.performClick();
-                    Toast.makeText(getApplicationContext(),"Submitting...", Toast.LENGTH_LONG);
+                    Toast.makeText(getApplicationContext(),"Submitting...", Toast.LENGTH_LONG).show();
                 }
                 break;
             }
@@ -336,7 +336,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         textView.setText(help);
-        Toast.makeText(getApplicationContext(),help, Toast.LENGTH_LONG);
+        Toast.makeText(getApplicationContext(),help, Toast.LENGTH_LONG).show();
 
         t1=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
