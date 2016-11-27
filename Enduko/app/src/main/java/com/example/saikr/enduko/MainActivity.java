@@ -1,5 +1,6 @@
 package com.example.saikr.enduko;
 
+import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -8,9 +9,11 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
+import android.speech.tts.UtteranceProgressListener;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -19,6 +22,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -33,6 +37,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -51,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
     private final int REQ_CODE_SPEECH_INPUT = 100;
     private  int olm=1;
     TextToSpeech t1;
+    private  CheckBox hindiCheck;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         arr=new int[19];
@@ -64,14 +70,8 @@ public class MainActivity extends AppCompatActivity {
         chitti=(Button)findViewById(R.id.bt2);
         txtSpeechInput = (TextView) findViewById(R.id.txtSpeechInput);
         btnSpeak = (ImageButton) findViewById(R.id.btnSpeak);
-        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
+        hindiCheck = (CheckBox) findViewById(R.id.hindi);
+
         btnSpeak.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -104,15 +104,20 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if(qIndex>0){
                     String answer=urlText.getText().toString();
-                    if(answer.equalsIgnoreCase("yes"))
+                    Log.d("Input:",answer);
+
+                    if(answer.equalsIgnoreCase("yes") || answer.equalsIgnoreCase("हां"))
                     {
                         arr[qIndex]=1;
                     }
-                    else if(answer.equalsIgnoreCase("no")){
+                    else if(answer.equalsIgnoreCase("no") || answer.equalsIgnoreCase("नहीं")){
                         arr[qIndex]=2;
                     }
                     else{
-                        Toast.makeText(getApplicationContext(),"Please enter your answer (yes/no)",Toast.LENGTH_LONG).show();
+                        if(!hindiCheck.isChecked())
+                            Toast.makeText(getApplicationContext(),"Please enter your answer (yes/no)",Toast.LENGTH_LONG).show();
+                        else
+                            Toast.makeText(getApplicationContext(), "अपना जवाब हाँ या नही में दे", Toast.LENGTH_LONG).show();
                         return;
                     }
                     qIndex=0;
@@ -124,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
                 sturl=sturl.replaceAll("\\]","");
                 sturl=sturl.replaceAll(" ","");
                 //Toast.makeText(getApplicationContext(),"output "+sturl,Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Submitting...", Toast.LENGTH_LONG).show();
                 myClickHandler(v, sturl);
 
             }
@@ -141,9 +147,20 @@ public class MainActivity extends AppCompatActivity {
 
     private void promptSpeechInput() {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
-                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+
+        if(!hindiCheck.isChecked()){
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                    RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+        }
+
+        else
+        {
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                    "hi_IN");
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "hi_IN");
+        }
+
         intent.putExtra(RecognizerIntent.EXTRA_PROMPT,
                 getString(R.string.speech_prompt));
         try {
@@ -169,6 +186,7 @@ public class MainActivity extends AppCompatActivity {
                     ArrayList<String> result = data
                             .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     urlText.setText(result.get(0));
+                    chitti.performClick();
                 }
                 break;
             }
@@ -240,63 +258,148 @@ public class MainActivity extends AppCompatActivity {
 
         String help = "";
 
-        if ( temp == 1)
-            help = ("Have you been experiencing headache (yes/no)");
-        else if ( temp == 2)
-            help = ("Have you been experiencing vomit (yes/no)");
-        else if ( temp == 3)
-            help = ("Have you been experiencing nausea (yes/no)");
-        else if ( temp == 4)
-            help = ("Have you been experiencing pain in eye (yes/no)");
-        else if ( temp == 5)
-            help = ("Have you been experiencing pain in muscle (yes/no)");
-        else if ( temp == 6)
-            help = ("Have you been experiencing pain in chest (yes/no)");
-        else if ( temp == 7)
-            help = ("Have you been experiencing chills or high spike in fever (yes/no)");
-        else if ( temp == 8)
-            help = ("Have you been experiencing pain in nerve (yes/no)");
-        else if ( temp == 9)
-            help = ("Have you been experiencing pain in joint (yes/no)");
-        else if ( temp == 10)
-            help = ("Have you been experiencing bleeding gums (yes/no)");
-        else if ( temp == 11)
-            help = ("Have you been experiencing itching  (yes/no)");
-        else if ( temp == 12)
-            help = ("Are there any rashes occuring (yes/no)");
-        else if ( temp == 13)
-            help = ("Have you been experiencing fever (yes/no)");
-        else if ( temp == 14)
-            help = ("Have you been experiencing abdominal pain or stomach ache (yes/no)");
-        else if ( temp == 15)
-            help = ("Have you been experiencing diarrhea (yes/no)");
-        else if ( temp == 16)
-            help = ("Have you been experiencing dizziness (yes/no)");
-        else if ( temp == 17)
-            help = ("Have you been experiencing discomfort (yes/no)");
-        else if ( temp == 18)
-            help = ("Have you been experiencing bleeding nose (yes/no)");
+        if(!hindiCheck.isChecked()){
+            if ( temp == 1)
+                help = ("Have you been experiencing headache (yes/no)");
+            else if ( temp == 2)
+                help = ("Have you been experiencing vomit (yes/no)");
+            else if ( temp == 3)
+                help = ("Have you been experiencing nausea (yes/no)");
+            else if ( temp == 4)
+                help = ("Have you been experiencing pain in eye (yes/no)");
+            else if ( temp == 5)
+                help = ("Have you been experiencing pain in muscle (yes/no)");
+            else if ( temp == 6)
+                help = ("Have you been experiencing pain in chest (yes/no)");
+            else if ( temp == 7)
+                help = ("Have you been experiencing chills or high spike in fever (yes/no)");
+            else if ( temp == 8)
+                help = ("Have you been experiencing pain in nerve (yes/no)");
+            else if ( temp == 9)
+                help = ("Have you been experiencing pain in joint (yes/no)");
+            else if ( temp == 10)
+                help = ("Have you been experiencing bleeding gums (yes/no)");
+            else if ( temp == 11)
+                help = ("Have you been experiencing itching  (yes/no)");
+            else if ( temp == 12)
+                help = ("Are there any rashes occuring (yes/no)");
+            else if ( temp == 13)
+                help = ("Have you been experiencing fever (yes/no)");
+            else if ( temp == 14)
+                help = ("Have you been experiencing abdominal pain or stomach ache (yes/no)");
+            else if ( temp == 15)
+                help = ("Have you been experiencing diarrhea (yes/no)");
+            else if ( temp == 16)
+                help = ("Have you been experiencing dizziness (yes/no)");
+            else if ( temp == 17)
+                help = ("Have you been experiencing discomfort (yes/no)");
+            else if ( temp == 18)
+                help = ("Have you been experiencing bleeding nose (yes/no)");
+        }
+        else {
+                if (temp == 1)
+                    help = ("क्या आपके सर में दर्द हो रहा है, हाँ या नही में जवाब दें");
+                else if (temp == 2)
+                    help = ("क्या आपको उल्टियाँ आ रही हें, हाँ या नही में जवाब दें");
+                else if (temp == 3)
+                    help = ("क्या आपको मतली हो रही हे, हाँ या नही में जवाब दें");
+                else if (temp == 4)
+                    help = ("क्या आपके आँख में दर्द हे, हाँ या नही में जवाब दें");
+                else if (temp == 5)
+                    help = ("क्या आपकी मसपेसिओं में दर्द हे, हाँ या नही में जवाब दें");
+                else if (temp == 6)
+                    help = ("क्या आपके छाती में दर्द हो रा हे, हाँ या नही में जवाब दें");
+                else if (temp == 7)
+                    help = ("क्या आपका बुखार हाल ही में बढ़ा हे या फिर आप काप रहे हें, हाँ या नही में जवाब दें");
+                else if (temp == 8)
+                    help = ("क्या आपके नस में दर्द हे, हाँ या नही में जवाब दें");
+                else if (temp == 9)
+                    help = ("क्या आपके जोड़ों में दर्द हे, हाँ या नही में जवाब दें");
+                else if (temp == 10)
+                    help = ("क्या आपके मसूड़ों में खून हे, हाँ या नही में जवाब दें");
+                else if (temp == 11)
+                    help = ("क्या आपको खुजली हे, हाँ या नही में जवाब दें");
+                else if (temp == 12)
+                    help = ("क्या आपको चकते हे, हाँ या नही में जवाब दें");
+                else if (temp == 13)
+                    help = ("क्या आपको बुखार हे, हाँ या नही में जवाब दें");
+                else if (temp == 14)
+                    help = ("क्या आपको पेट में दर्द हे, हाँ या नही में जवाब दें");
+                else if (temp == 15)
+                    help = ("क्या आपको डायरिया हे, हाँ या नही में जवाब दें");
+                else if (temp == 16)
+                    help = ("क्या आपको चक्कर हे, हाँ या नही में जवाब दें");
+                else if (temp == 17)
+                    help = ("क्या आपको तकलीफ़ हे, हाँ या नही में जवाब दें");
+                else if (temp == 18)
+                    help = ("क्या आपके नाक से खून निकल रा हे, हाँ या नही में जवाब दें");
+            }
 
         textView.setText(help);
+        Toast.makeText(getApplicationContext(),help, Toast.LENGTH_LONG).show();
 
         t1=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
 
-                Log.d("Nigga", "comma");
                 if(status != TextToSpeech.ERROR) {
-                    t1.setLanguage(Locale.UK);
-                }
-                t1.speak(String.valueOf(textView.getText()), TextToSpeech.QUEUE_FLUSH, null);
+                    if(!hindiCheck.isChecked())
+                        t1.setLanguage(Locale.ENGLISH);
+                    else
+                        t1.setLanguage(new Locale("hi", "IN"));
+                    t1.setOnUtteranceProgressListener(new UtteranceProgressListener() {
+                        @Override
+                        public void onStart(String s) {
 
+                        }
+
+                        @Override
+                        public void onDone(String s) {
+                            MainActivity.this.runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    btnSpeak.performClick();
+                                }
+                            });
+                        }
+
+                        @Override
+                        public void onError(String s) {
+
+                        }
+                    });
+
+                }
+                else {
+                    Log.e("MainActivity", "Initilization Failed!");
+                }
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    ttsGreater21(String.valueOf(textView.getText()));
+                } else {
+                    ttsUnder20(String.valueOf(textView.getText()));
+                }
 
             }
         });
 
-        Log.d("Nigga", "hola");
 
         urlText.setText("");
 
+    }
+
+
+    @SuppressWarnings("deprecation")
+    private void ttsUnder20(String string) {
+        HashMap<String, String> map = new HashMap<>();
+        map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, "MessageId");
+        t1.speak(string, TextToSpeech.QUEUE_FLUSH, map);
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private void ttsGreater21(String string) {
+        String utteranceId=this.hashCode() + "";
+        t1.speak(string, TextToSpeech.QUEUE_FLUSH, null, utteranceId);
     }
 
     public void myClickHandler(View view,String sturl) {
