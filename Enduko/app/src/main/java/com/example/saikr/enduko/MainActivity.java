@@ -56,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
     private final int REQ_CODE_SPEECH_INPUT = 100;
     private  int olm=1;
     TextToSpeech t1;
+    // @Sodhi add code to fetch the user id
+    private String user_id = "hello";
     private  CheckBox hindiCheck;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -461,6 +463,8 @@ public class MainActivity extends AppCompatActivity {
             conn.setConnectTimeout(15000 /* milliseconds */);
             conn.setRequestMethod("GET");
             conn.setDoInput(true);
+
+            conn.setRequestProperty("userId", user_id);
             // Starts the query
             conn.connect();
             int response = conn.getResponseCode();
@@ -502,8 +506,8 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.disease_history) {
+            startActivity(new Intent(MainActivity.this, DiseaseHistory.class));
         }
 
         return super.onOptionsItemSelected(item);

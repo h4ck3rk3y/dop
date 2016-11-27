@@ -6,6 +6,8 @@ from disease import *
 from check import *
 import array
 
+from .models import Diagnosis
+
 def sentenizer(str): #getting sentences
     sent_tokenizer=nltk.data.load('tokenizers/punkt/english.pickle')
     sents = sent_tokenizer.tokenize(str)
@@ -28,13 +30,13 @@ def stem2(word):
 # Create your views here.
 def first_try(request):
 	initialise()
-	count = 0 
-	prob = [] #stores problems faced 
+	count = 0
+	prob = [] #stores problems faced
 	symc = [] #symc stores all symptoms
 	cp=0
-	
-	
-	#cond = raw_input('Enter your current conditions and sufferings if any \n') #input 
+
+
+	#cond = raw_input('Enter your current conditions and sufferings if any \n') #input
 	request = str(request)
 	start = request.find('?')
 	end = request.find('#')
@@ -62,12 +64,12 @@ def first_try(request):
 				else:
 					sym = t
 					symc.append(t1)
-    
+
 				if(sym is not ''):
 					prob.append(neg + ' ' + sym)
 
 
-        
+
 	print 'Symptoms Observed are\n'
 	j=0
 
@@ -87,10 +89,17 @@ def first_try(request):
 	'''
 
 	return HttpResponse(str(sym_arr))
-	
-	
+
+
 def second_try(request):
 	initialise()
+
+	regex = re.compile('^HTTP_')
+	headers=dict((regex.sub('', header), value) for (header, value)
+       in request.META.items() if header.startswith('HTTP_'))
+
+	user = headers["HTTP_USERID"]
+
 	request = str(request)
 	start = request.find('?')
 	end = request.find('#')
@@ -98,7 +107,35 @@ def second_try(request):
 	sym = []
 	#sym = array.array('i', (int(t) for t in cond.split(",")))
 	sym = map(int, cond.split(","))
-	d = dis_id2(sym)
+	d, diagnosed = dis_id2(sym)
+
+	if diagnosed!=None:
+		if diagnosed:
+			diagnosis = Diagnosis(d, user)
+			diagnosis.save()
+		else:
+			diagnosis = Diagnosis("Not Available", user)
+			diagnosis.save()
+
+
 	#d = disdata[2]
 	print str(d)
 	return  HttpResponse(str(d))
+
+
+def disease_history(request):
+	regex = re.compile('^HTTP_')
+	headers=dict((regex.sub('', header), value) for (header, value)
+       in request.META.items() if header.startswith('HTTP_'))
+
+	user = headers["HTTP_USERID"]
+
+	diseases = Diagnosis.objects.filter(user_id=user)
+
+	output = []
+
+	for disease in diseases:
+		output.append(disease.user_id + ' ' + disease.diagnosis + ' ' + disease.created_at)
+
+	return HttpResponse(str(','.join(diseases))
+

@@ -95,10 +95,10 @@ def dis_id2(sym = []):
 			#print dis
 			cri_sym = find_max()
 			if(cri_sym == -1):
-				return disdata[find_max_dis()]
+				return disdata[find_max_dis()], True
 			sym[cri_sym] = 2
-			return sym
-        return disdata[find_max_dis()]
+			return sym, False
+        return disdata[find_max_dis()], None
 
         
 
