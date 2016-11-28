@@ -6,11 +6,13 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
@@ -56,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
     private final int REQ_CODE_SPEECH_INPUT = 100;
     private  int olm=1;
     TextToSpeech t1;
+    static final int USER_LOGIN_REQUEST = 1;
+
     // @Sodhi add code to fetch the user id
     private String user_id = "hello";
     private  CheckBox hindiCheck;
@@ -133,11 +137,24 @@ public class MainActivity extends AppCompatActivity {
                 //Toast.makeText(getApplicationContext(),"output "+sturl,Toast.LENGTH_LONG).show();
                 Toast.makeText(getApplicationContext(),"Submitting...", Toast.LENGTH_LONG).show();
                 myClickHandler(v, sturl);
-
             }
         });
 
+
+
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        boolean logged_in = sharedPreferences.getBoolean("logged_in", false);
+
+        if (logged_in) {
+            user_id = sharedPreferences.getString("user_id", "sodhi123");
+        } else {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivityForResult(intent, USER_LOGIN_REQUEST);
+        }
+
     }
+
     public void onPause(){
         if(t1 !=null){
             t1.stop();
@@ -158,8 +175,7 @@ public class MainActivity extends AppCompatActivity {
 
         else
         {
-            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
-                    "hi_IN");
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "hi_IN");
             intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "hi_IN");
         }
 
@@ -192,7 +208,11 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             }
-
+            case USER_LOGIN_REQUEST: {
+                user_id = data.getStringExtra("user_id");
+                Log.d("LOGIN", "Logged in, user_id: " + user_id);
+                break;
+            }
         }
     }
     private void updateSymptoms() {
