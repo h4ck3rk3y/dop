@@ -210,6 +210,15 @@ public class MainActivity extends AppCompatActivity {
             }
             case USER_LOGIN_REQUEST: {
                 user_id = data.getStringExtra("user_id");
+
+                // saving that a user has now been logged in
+                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean("logged_in", true);
+                editor.putString("user_id", user_id);
+
+                editor.commit();
+
                 Log.d("LOGIN", "Logged in, user_id: " + user_id);
                 break;
             }
