@@ -24,13 +24,16 @@ public class DiseaseHistory extends ListActivity {
 
     ListView list;
     ArrayList <String> listitems = new ArrayList<>();
-    // @Sodhi find a way to set this
-    String user_id="hello";
+
+    String user_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_disease_history);
+
+        // populating user_id from intent
+        user_id = getIntent().getStringExtra("user_id");
 
         String url = "http://medapp.pythonanywhere.com/webapp/history";
 

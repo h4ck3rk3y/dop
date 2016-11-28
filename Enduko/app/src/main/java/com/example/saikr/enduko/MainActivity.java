@@ -536,7 +536,9 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.disease_history) {
-            startActivity(new Intent(MainActivity.this, DiseaseHistory.class));
+            Intent intent = new Intent(MainActivity.this, DiseaseHistory.class);
+            intent.putExtra("user_id", user_id);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
