@@ -493,7 +493,7 @@ public class MainActivity extends AppCompatActivity {
             conn.setRequestMethod("GET");
             conn.setDoInput(true);
 
-            conn.setRequestProperty("userId", user_id);
+            conn.addRequestProperty("userId", user_id);
             // Starts the query
             conn.connect();
             int response = conn.getResponseCode();
