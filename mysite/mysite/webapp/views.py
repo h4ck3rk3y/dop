@@ -122,13 +122,9 @@ def second_try(request):
     sym = map(int, cond.split(","))
     d, diagnosed = dis_id2(sym)
 
-    if diagnosed!=None:
-        if diagnosed:
-            diagnosis = Diagnosis(disease=d, user_id=user)
-            diagnosis.save()
-        else:
-            diagnosis = Diagnosis(disease="Unsuccesful diagnosis", user_id=user)
-            diagnosis.save()
+    if diagnosed:
+        diagnosis = Diagnosis(disease=d, user_id=user)
+        diagnosis.save()
 
 
     #d = disdata[2]
