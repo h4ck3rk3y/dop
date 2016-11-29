@@ -98,8 +98,7 @@ def dis_id2(sym = []):
 				return disdata[find_max_dis()], True
 			sym[cri_sym] = 2
 			return sym, False
-        print disdata[find_max_dis()]
-        return disdata[find_max_dis()]
+        return disdata[find_max_dis()], True
 
         
 
